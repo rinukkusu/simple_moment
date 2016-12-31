@@ -1,0 +1,11 @@
+name: simple_moment
+description: A simple implementation of the Moment.js features for relative time.
+version: 0.0.1
+author: rinukkusu <rinukkusu@auen.land>
+homepage: https://github.com/rinukkusu
+
+environment:
+  sdk: '>=1.0.0 <2.0.0'
+
+dev_dependencies:
+  test: '>=0.12.0 <0.13.0'
