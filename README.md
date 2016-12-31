@@ -10,8 +10,12 @@ A simple usage example:
 import 'package:simple_moment/simple_moment.dart';
 
 main() {
+    var secondsToAdd = new Duration(seconds: 10);
+    var dateForComparison = new DateTime.now().add(secondsToAdd);
     var moment = new Moment.now();
-    print(moment);
+
+    // should print "in a few seconds"
+    print(moment.from(dateForComparison));
 }
 ```
 
