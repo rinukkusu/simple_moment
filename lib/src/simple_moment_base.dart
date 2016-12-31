@@ -35,17 +35,17 @@ class Moment {
 
     String timeString = "";
 
-    if (diff.inSeconds < 45) timeString = "a few seconds";
-    else if (diff.inSeconds < 90) timeString = "a minute";
-    else if (diff.inMinutes < 45) timeString = "${diff.inMinutes} minutes";
-    else if (diff.inMinutes < 90) timeString = "an hour";
-    else if (diff.inHours < 22) timeString = "${diff.inHours} hours";
-    else if (diff.inHours < 36) timeString = "a day";
-    else if (diff.inDays < 26) timeString = "${diff.inDays} days";
-    else if (diff.inDays < 46) timeString = "a month";
-    else if (diff.inDays < 320) timeString = "${diff.inDays ~/ 30} months";
-    else if (diff.inDays < 547) timeString = "a year";
-    else timeString = "${diff.inDays ~/ 356} years";
+    if (diff.inSeconds.abs() < 45) timeString = "a few seconds";
+    else if (diff.inMinutes.abs() < 2) timeString = "a minute";
+    else if (diff.inMinutes.abs() < 45) timeString = "${diff.inMinutes.abs()} minutes";
+    else if (diff.inHours.abs() < 2) timeString = "an hour";
+    else if (diff.inHours.abs() < 22) timeString = "${diff.inHours.abs()} hours";
+    else if (diff.inDays.abs() < 2) timeString = "a day";
+    else if (diff.inDays.abs() < 26) timeString = "${diff.inDays.abs()} days";
+    else if (diff.inDays.abs() < 60) timeString = "a month";
+    else if (diff.inDays.abs() < 320) timeString = "${diff.inDays.abs() ~/ 30} months";
+    else if (diff.inDays.abs() < 547) timeString = "a year";
+    else timeString = "${diff.inDays.abs() ~/ 356} years";
 
     if (!withoutPrefixOrSuffix) {
       if (diff.inSeconds < 0)
