@@ -1,4 +1,4 @@
-# simple_moment
+# simple_moment [![Pub](https://img.shields.io/pub/v/simple_moment.svg)](https://pub.dartlang.org/packages/simple_moment)
 
 A simple implementation of the Moment.js features for relative time in Dart.
 
