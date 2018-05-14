@@ -32,5 +32,10 @@ void main() {
       DateTime compareDate = DateTime.parse("2016-12-31 11:59:30");
       expect(new Moment.fromDate(currentDate).from(compareDate) == "a few seconds ago", isTrue);
     });
+
+    test('Moment.from(less than a second ago)', () {
+      DateTime compareDate = DateTime.parse("2016-12-31 11:59:59.001");
+      expect(new Moment.fromDate(currentDate).from(compareDate) == "a few seconds ago", isTrue);
+    });
   });
 }
