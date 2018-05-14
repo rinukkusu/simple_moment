@@ -48,7 +48,7 @@ class Moment {
     else timeString = "${diff.inDays.abs() ~/ 356} years";
 
     if (!withoutPrefixOrSuffix) {
-      if (diff.inSeconds < 0)
+      if (diff.isNegative)
         timeString += " ago";
       else
         timeString = "in " + timeString;
