@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.3
+
+- fixed bug for diff under one second (#1)
+
 ## 0.0.2
 
 - fixed a few bugs
