@@ -41,7 +41,7 @@ Just create a class that implements `ILocaleData` and assign that to your `Momen
 ### Overwriting existing locales:
 
 ```dart
-class ShortLocaleEn extends ILocaleData {
+class ShortLocaleEn extends LocaleEn {
   String get seconds => '%is';
 
   String get aMinute => '%im';
