@@ -19,6 +19,22 @@ main() {
 }
 ```
 
+## Locales
+
+Set the locale for all usages of `Moment`:
+
+```dart
+Moment.setLocaleGlobally(new LocaleDe());
+```
+
+Set the locale only for the current instance of `Moment`:
+
+```dart
+var moment = new Moment.now().locale(new LocaleDe());
+```
+
+_The default locale is english._
+
 ## Features and bugs
 
 Please file feature requests and bugs at the [issue tracker][tracker].
