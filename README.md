@@ -52,12 +52,6 @@ class ShortLocaleEn extends ILocaleData {
 
   String get aDay => '%id';
   String get days => '%id';
-
-  String get futureIdentifier => 'in';
-  String get pastIdentifier => 'ago';
-
-  IdentifierPosition get futurePosition => IdentifierPosition.prepend;
-  IdentifierPosition get pastPosition => IdentifierPosition.append;
 }
 ```
 
