@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1
+
+- added missing export for `IdentifierPosition`
+
 ## 0.1.0
 
 - added locale functionality ([#2])
