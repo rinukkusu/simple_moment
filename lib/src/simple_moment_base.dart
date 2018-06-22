@@ -1,8 +1,14 @@
 // Copyright (c) 2016, rinukkusu. All rights reserved. Use of this source code
 // is governed by a BSD-style license that can be found in the LICENSE file.
 
+import 'localedata.dart';
+import 'locales/en.dart';
+import 'identifier_position.dart';
+
 class Moment {
   DateTime _date;
+  static ILocaleData _globalLocale = new LocaleEn();
+  ILocaleData _locale;
 
   Moment.now() {
     _date = new DateTime.now();
@@ -22,6 +28,19 @@ class Moment {
     return new Moment.fromDate(DateTime.parse(date));
   }
 
+  static setLocaleGlobally(ILocaleData locale) {
+    _globalLocale = locale;
+  }
+
+  Moment locale(ILocaleData locale) {
+    _locale = locale;
+    return this;
+  }
+
+  ILocaleData _getLocale() {
+    return _locale ?? _globalLocale;
+  }
+
   String toString() {
     return _date.toString();
   }
@@ -35,25 +54,40 @@ class Moment {
 
     String timeString = "";
 
-    if (diff.inSeconds.abs() < 45) timeString = "a few seconds";
-    else if (diff.inMinutes.abs() < 2) timeString = "a minute";
-    else if (diff.inMinutes.abs() < 45) timeString = "${diff.inMinutes.abs()} minutes";
-    else if (diff.inHours.abs() < 2) timeString = "an hour";
-    else if (diff.inHours.abs() < 22) timeString = "${diff.inHours.abs()} hours";
-    else if (diff.inDays.abs() < 2) timeString = "a day";
-    else if (diff.inDays.abs() < 26) timeString = "${diff.inDays.abs()} days";
-    else if (diff.inDays.abs() < 60) timeString = "a month";
-    else if (diff.inDays.abs() < 320) timeString = "${diff.inDays.abs() ~/ 30} months";
-    else if (diff.inDays.abs() < 547) timeString = "a year";
-    else timeString = "${diff.inDays.abs() ~/ 356} years";
+    var locale = _getLocale();
+
+    if (diff.inSeconds.abs() < 45) timeString = locale.seconds;
+    else if (diff.inMinutes.abs() < 2) timeString = locale.aMinute;
+    else if (diff.inMinutes.abs() < 45) timeString = "${diff.inMinutes.abs()} ${locale.minutes}";
+    else if (diff.inHours.abs() < 2) timeString = locale.anHour;
+    else if (diff.inHours.abs() < 22) timeString = "${diff.inHours.abs()} ${locale.hours}";
+    else if (diff.inDays.abs() < 2) timeString = locale.aDay;
+    else if (diff.inDays.abs() < 26) timeString = "${diff.inDays.abs()} ${locale.days}";
+    else if (diff.inDays.abs() < 60) timeString = locale.aMonth;
+    else if (diff.inDays.abs() < 320) timeString = "${diff.inDays.abs() ~/ 30} ${locale.months}";
+    else if (diff.inDays.abs() < 547) timeString = locale.aYear;
+    else timeString = "${diff.inDays.abs() ~/ 356} ${locale.years}";
 
     if (!withoutPrefixOrSuffix) {
       if (diff.isNegative)
-        timeString += " ago";
+        timeString = _addIdentifier(timeString, locale.pastPosition, locale.pastIdentifier);
       else
-        timeString = "in " + timeString;
+        timeString = _addIdentifier(timeString, locale.futurePosition, locale.futureIdentifier);
     }
 
     return timeString;
+  }
+
+  String _addIdentifier(String timeString, IdentifierPosition position, String identifier) {
+    switch (position) {
+      case IdentifierPosition.prepend:
+        return '${identifier} ${timeString}';
+      case IdentifierPosition.append:
+        return '${timeString} ${identifier}';
+      
+      case IdentifierPosition.dontDisplay:
+      default:
+        return timeString;
+    }
   }
 }
