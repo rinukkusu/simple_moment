@@ -12,9 +12,6 @@ abstract class ILocaleData {
   String get aDay;
   String get days;
 
-  String get aWeek;
-  String get weeks;
-
   String get aMonth;
   String get months;
 

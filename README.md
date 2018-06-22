@@ -21,19 +21,45 @@ main() {
 
 ## Locales
 
-Set the locale for all usages of `Moment`:
+### Set the locale for all usages of `Moment`:
 
 ```dart
 Moment.setLocaleGlobally(new LocaleDe());
 ```
 
-Set the locale only for the current instance of `Moment`:
+### Set the locale only for the current instance of `Moment`:
 
 ```dart
 var moment = new Moment.now().locale(new LocaleDe());
 ```
 
-_The default locale is english._
+### Adding your own locale:
+
+Just create a class that implements `ILocaleData` and assign that to your `Moment` instance or set it globally.
+
+
+### Overwriting existing locales:
+
+```dart
+class ShortLocaleEn extends ILocaleData {
+  String get seconds => '%is';
+
+  String get aMinute => '%im';
+  String get minutes => '%im';
+
+  String get anHour => '%ih';
+  String get hours => '%ih';
+
+  String get aDay => '%id';
+  String get days => '%id';
+
+  String get futureIdentifier => 'in';
+  String get pastIdentifier => 'ago';
+
+  IdentifierPosition get futurePosition => IdentifierPosition.prepend;
+  IdentifierPosition get pastPosition => IdentifierPosition.append;
+}
+```
 
 ## Features and bugs
 

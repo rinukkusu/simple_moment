@@ -56,17 +56,17 @@ class Moment {
 
     var locale = _getLocale();
 
-    if (diff.inSeconds.abs() < 45) timeString = locale.seconds;
-    else if (diff.inMinutes.abs() < 2) timeString = locale.aMinute;
-    else if (diff.inMinutes.abs() < 45) timeString = "${diff.inMinutes.abs()} ${locale.minutes}";
-    else if (diff.inHours.abs() < 2) timeString = locale.anHour;
-    else if (diff.inHours.abs() < 22) timeString = "${diff.inHours.abs()} ${locale.hours}";
-    else if (diff.inDays.abs() < 2) timeString = locale.aDay;
-    else if (diff.inDays.abs() < 26) timeString = "${diff.inDays.abs()} ${locale.days}";
-    else if (diff.inDays.abs() < 60) timeString = locale.aMonth;
-    else if (diff.inDays.abs() < 320) timeString = "${diff.inDays.abs() ~/ 30} ${locale.months}";
-    else if (diff.inDays.abs() < 547) timeString = locale.aYear;
-    else timeString = "${diff.inDays.abs() ~/ 356} ${locale.years}";
+    if (diff.inSeconds.abs() < 45) timeString = locale.seconds.replaceFirst('%i', '${diff.inSeconds.abs()}');
+    else if (diff.inMinutes.abs() < 2) timeString = locale.aMinute.replaceFirst('%i', '${diff.inMinutes.abs()}');
+    else if (diff.inMinutes.abs() < 45) timeString = locale.minutes.replaceFirst('%i','${diff.inMinutes.abs()}');
+    else if (diff.inHours.abs() < 2) timeString = locale.anHour.replaceFirst('%i', '${diff.inHours.abs()}');
+    else if (diff.inHours.abs() < 22) timeString = locale.hours.replaceFirst('%i', '${diff.inHours.abs()}');
+    else if (diff.inDays.abs() < 2) timeString = locale.aDay.replaceFirst('%i', '${diff.inDays.abs()}');
+    else if (diff.inDays.abs() < 26) timeString = locale.days.replaceFirst('%i', '${diff.inDays.abs()}');
+    else if (diff.inDays.abs() < 60) timeString = locale.aMonth.replaceFirst('%i', '${diff.inDays.abs() ~/ 30}');
+    else if (diff.inDays.abs() < 320) timeString = locale.months.replaceFirst('%i', '${diff.inDays.abs() ~/ 30}');
+    else if (diff.inDays.abs() < 547) timeString = locale.aYear.replaceFirst('%i', '${diff.inDays.abs() ~/ 356}');
+    else timeString = locale.years.replaceFirst('%i', '${diff.inDays.abs() ~/ 356}');
 
     if (!withoutPrefixOrSuffix) {
       if (diff.isNegative)

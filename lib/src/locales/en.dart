@@ -5,22 +5,19 @@ class LocaleEn implements ILocaleData {
   String get seconds => 'a few seconds';
 
   String get aMinute => 'a minute';
-  String get minutes => 'minutes';
+  String get minutes => '%i minutes';
 
   String get anHour => 'an hour';
-  String get hours => 'hours';
+  String get hours => '%i hours';
 
   String get aDay => 'a day';
-  String get days => 'days';
-
-  String get aWeek => 'a week';
-  String get weeks => 'weeks';
+  String get days => '%i days';
 
   String get aMonth => 'a month';
-  String get months => 'months';
+  String get months => '%i months';
 
   String get aYear => 'a year';
-  String get years => 'years';
+  String get years => '%i years';
 
   String get futureIdentifier => 'in';
   String get pastIdentifier => 'ago';
