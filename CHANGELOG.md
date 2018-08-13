@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.0
+
+- upgraded to Dart SDK 2.0
+
 ## 0.1.1
 
 - added missing export for `IdentifierPosition`
