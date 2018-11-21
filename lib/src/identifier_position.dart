@@ -1,5 +1,1 @@
-enum IdentifierPosition {
-  prepend,
-  append,
-  dontDisplay
-}
+enum IdentifierPosition { prepend, append, dontDisplay }
