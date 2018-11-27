@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.2
+
+- added pt_BR locale ([#3])
+
+## 1.0.1
+
+- make pub analyzer happy
+
 ## 1.0.0
 
 - upgraded to Dart SDK 2.0
@@ -28,3 +36,4 @@
 
 [#1]: https://github.com/rinukkusu/simple_moment/pull/1
 [#2]: https://github.com/rinukkusu/simple_moment/issues/2
+[#3]: https://github.com/rinukkusu/simple_moment/pull/6

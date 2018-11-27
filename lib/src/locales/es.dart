@@ -1,3 +1,6 @@
+// Copyright (c) 2018, moraleja39. All rights reserved. Use of this source code
+// is governed by a BSD-style license that can be found in the LICENSE file.
+
 import '../localedata.dart';
 import '../identifier_position.dart';
 
