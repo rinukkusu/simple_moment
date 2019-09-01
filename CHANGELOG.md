@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.3
+
+- Add italian locale, add french locale  ([#7])
+
 ## 1.0.2
 
 - added pt_BR locale ([#3])
