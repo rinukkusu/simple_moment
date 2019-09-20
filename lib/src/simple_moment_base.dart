@@ -100,11 +100,11 @@ class Moment {
     switch (position) {
       case IdentifierPosition.prepend:
         return '${identifier} ${timeString}';
-      case IdentifierPosition.prependUnSpace:
+      case IdentifierPosition.prependWithoutSpace:
         return '${identifier}${timeString}';
       case IdentifierPosition.append:
         return '${timeString} ${identifier}';
-      case IdentifierPosition.appendUnSpace:
+      case IdentifierPosition.appendWithoutSpace:
         return '${timeString}${identifier}';
 
       case IdentifierPosition.dontDisplay:
