@@ -1,1 +1,1 @@
-enum IdentifierPosition { prepend, prependUnSpace, append , appendUnSpace, dontDisplay }
+enum IdentifierPosition { prepend, prependWithoutSpace, append , appendWithoutSpace, dontDisplay }
