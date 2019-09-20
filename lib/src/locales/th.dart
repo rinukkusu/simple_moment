@@ -26,5 +26,5 @@ class LocaleTh extends ILocaleData {
   String get pastIdentifier => 'ที่แล้ว';
 
   IdentifierPosition get futurePosition => IdentifierPosition.prepend;
-  IdentifierPosition get pastPosition => IdentifierPosition.appendUnSpace;
+  IdentifierPosition get pastPosition => IdentifierPosition.appendWithoutSpace;
 }
