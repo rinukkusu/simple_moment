@@ -13,13 +13,13 @@ class LocaleTh extends ILocaleData {
   String get anHour => 'ชั่วโมง';
   String get hours => '%i ชั่วโมง';
 
-  String get aDay => 'a วัน';
+  String get aDay => '1 วัน';
   String get days => '%i วัน';
 
-  String get aMonth => 'a เดือน';
+  String get aMonth => '1 เดือน';
   String get months => '%i เดือน';
 
-  String get aYear => 'a ปี';
+  String get aYear => '1 ปี';
   String get years => '%i ปี';
 
   String get futureIdentifier => 'อีก';
