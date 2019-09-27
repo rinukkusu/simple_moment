@@ -5,6 +5,7 @@ library simple_moment;
 
 export 'src/identifier_position.dart';
 export 'src/localedata.dart';
+export 'src/locales/ca_es.dart';
 export 'src/locales/de.dart';
 export 'src/locales/en.dart';
 export 'src/locales/es.dart';
