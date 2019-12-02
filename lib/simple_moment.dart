@@ -12,4 +12,5 @@ export 'src/locales/fr.dart';
 export 'src/locales/it.dart';
 export 'src/locales/th.dart';
 export 'src/locales/pt_br.dart';
+export 'src/locales/zh.dart';
 export 'src/simple_moment_base.dart';
