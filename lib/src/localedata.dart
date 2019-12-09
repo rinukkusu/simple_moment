@@ -1,4 +1,4 @@
-import 'package:simple_moment/src/identifier_position.dart';
+import 'identifier_position.dart';
 
 abstract class ILocaleData {
   String get seconds;
