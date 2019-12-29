@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.4
+
+- add thai, catalan, dutch and turkish locale
+
 ## 1.0.3
 
 - Add italian locale, add french locale  ([#7])
