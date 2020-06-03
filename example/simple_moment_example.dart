@@ -10,4 +10,10 @@ main() {
 
   // should print "in a few seconds"
   print(moment.from(dateForComparison));
+
+  // should add one year to the current year
+  print(moment.add(years: 1));
+
+  // should substract one year to the current year
+  print(moment.subtract(years: 1));
 }

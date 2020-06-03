@@ -89,8 +89,13 @@ class Moment {
     return Moment.fromDateTime(dateTime);
   }
 
-  ///
   /// Formats the date to the given format
+  ///
+  /// @param pattern The pattern
+  /// @returns The formatted date
+  /// ```
+  /// String formattedDate = Moment.format("yyyy-mm-dd HH:mm");
+  /// ```
   ///
   String format(String pattern) {
     return DateFormat(pattern).format(_date);
