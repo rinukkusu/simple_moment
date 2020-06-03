@@ -17,16 +17,26 @@ class Moment {
     _date = new DateTime.now();
   }
 
+  /// Create a moment instance from Date
+  ///
+  /// @param date The date
   Moment.fromDate(DateTime date) {
     _date = date;
   }
 
+  /// Create a date from milliseconds
+  ///
+  /// @param millisecondsSinceEpoch
   Moment.fromMillisecondsSinceEpoch(int millisecondsSinceEpoch,
       {bool isUtc: false}) {
     _date = new DateTime.fromMillisecondsSinceEpoch(millisecondsSinceEpoch,
         isUtc: isUtc);
   }
 
+  /// Converts a Date String to an actual DateTime object
+  ///
+  /// @param date The date String
+  /// @returns a moment instance
   static Moment parse(String date) {
     return new Moment.fromDate(DateTime.parse(date));
   }
@@ -114,6 +124,14 @@ class Moment {
 
   /// The day of the week
   int get weekday => _date.weekday;
+
+  /// Compares the given date to the current one
+  ///
+  /// @param date The date to compare with the current one
+  /// @returns an int
+  int compareTo(DateTime date) {
+    return _date.compareTo(date);
+  }
 
   static setLocaleGlobally(ILocaleData locale) {
     _globalLocale = locale;
