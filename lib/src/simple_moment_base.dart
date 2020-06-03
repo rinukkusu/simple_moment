@@ -1,6 +1,8 @@
 // Copyright (c) 2016, rinukkusu. All rights reserved. Use of this source code
 // is governed by a BSD-style license that can be found in the LICENSE file.
 
+import 'package:intl/intl.dart';
+
 import 'localedata.dart';
 import 'locales/en.dart';
 import 'identifier_position.dart';
@@ -9,6 +11,7 @@ class Moment {
   DateTime _date;
   static ILocaleData _globalLocale = new LocaleEn();
   ILocaleData _locale;
+  static int monthPerQuarter = 3;
 
   Moment.now() {
     _date = new DateTime.now();
@@ -27,6 +30,85 @@ class Moment {
   static Moment parse(String date) {
     return new Moment.fromDate(DateTime.parse(date));
   }
+
+  Moment.fromDateTime(this._date);
+
+  ///
+  /// Adds time to the current date
+  ///
+  Moment add({
+    int years: 0,
+    int quarters: 0,
+    int months: 0,
+    int weeks: 0,
+    int days: 0,
+    int hours: 0,
+    int minutes: 0,
+    int seconds: 0,
+    int milliseconds: 0,
+    int microseconds: 0,
+  }) {
+    var dateTime = DateTime(
+      _date.year + years,
+      _date.month + months + quarters * monthPerQuarter,
+      _date.day + days + weeks * DateTime.daysPerWeek,
+      _date.hour + hours,
+      _date.minute + minutes,
+      _date.second + seconds,
+      _date.millisecond + milliseconds,
+      _date.microsecond + microseconds,
+    );
+    return Moment.fromDateTime(dateTime);
+  }
+
+  ///
+  /// Substracts time to the current date
+  ///
+  Moment subtract({
+    int years: 0,
+    int quarters: 0,
+    int months: 0,
+    int weeks: 0,
+    int days: 0,
+    int hours: 0,
+    int minutes: 0,
+    int seconds: 0,
+    int milliseconds: 0,
+    int microseconds: 0,
+  }) {
+    var dateTime = DateTime(
+      _date.year - years,
+      _date.month - months - quarters * monthPerQuarter,
+      _date.day - days - weeks * DateTime.daysPerWeek,
+      _date.hour - hours,
+      _date.minute - minutes,
+      _date.second - seconds,
+      _date.millisecond - milliseconds,
+      _date.microsecond - microseconds,
+    );
+    return Moment.fromDateTime(dateTime);
+  }
+
+  ///
+  /// Formats the date to the given format
+  ///
+  String format(String pattern) {
+    return DateFormat(pattern).format(_date);
+  }
+
+  int get year => _date.year;
+
+  /// The quarter
+  int get quarter => (_date.month - 1) ~/ 3 + 1;
+
+  /// The month
+  int get month => _date.month;
+
+  /// The day of the month
+  int get day => _date.day;
+
+  /// The day of the week
+  int get weekday => _date.weekday;
 
   static setLocaleGlobally(ILocaleData locale) {
     _globalLocale = locale;
