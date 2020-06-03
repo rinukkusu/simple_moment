@@ -46,6 +46,27 @@ void main() {
       );
     });
 
+    test('Moment.add(years:1)', () {
+      DateTime currentDateString = DateTime.parse("2020-06-03 11:25:28.001");
+      Moment currentDate = Moment.fromDate(currentDateString);
+      expect(
+        currentDate.add(years: 1).compareTo(DateTime.parse("2021-06-03 11:25:28.001")) == 0,
+        isTrue,
+      );
+    });
 
+    test('Moment.substract(years:1)', () {
+      DateTime currentDateString = DateTime.parse("2020-06-03 11:25:28.001");
+      Moment currentDate = Moment.fromDate(currentDateString);
+      expect(
+        currentDate.subtract(years: 1).compareTo(DateTime.parse("2019-06-03 11:25:28.001")) == 0,
+        isTrue,
+      );
+    });
+
+    test('Moment.format(pattern)', () {
+      Moment currentDate = Moment.fromDate(DateTime.parse("2020-06-03 11:25:28.001"));
+      expect(currentDate.format("yyyy-MM-dd HH:mm").compareTo("2020-06-03 11:25") == 0, isTrue);
+    });
   });
 }
