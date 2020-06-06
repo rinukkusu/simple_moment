@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.5
+
+- add methods Add, substract, format, compareTo ([#16])
+
 ## 1.0.4
 
 - add thai, catalan, dutch and turkish locale
@@ -10,7 +14,7 @@
 
 ## 1.0.2
 
-- added pt_BR locale ([#3])
+- added pt_BR locale ([#6])
 
 ## 1.0.1
 
@@ -44,4 +48,6 @@
 
 [#1]: https://github.com/rinukkusu/simple_moment/pull/1
 [#2]: https://github.com/rinukkusu/simple_moment/issues/2
-[#3]: https://github.com/rinukkusu/simple_moment/pull/6
+[#6]: https://github.com/rinukkusu/simple_moment/pull/6
+[#7]: https://github.com/rinukkusu/simple_moment/pull/7
+[#16]: https://github.com/rinukkusu/simple_moment/pull/16
