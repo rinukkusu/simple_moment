@@ -22,7 +22,7 @@ class LocaleFr implements ILocaleData {
   String get aYear => 'un an';
   String get years => '%i ans';
 
-  String get futureIdentifier => 'en';
+  String get futureIdentifier => 'dans';
   String get pastIdentifier => 'il y a';
 
   IdentifierPosition get futurePosition => IdentifierPosition.prepend;
