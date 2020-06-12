@@ -2,7 +2,7 @@
 
 ## 1.0.5+1
 
-- update french locale ([17])
+- update french locale ([#17])
 
 ## 1.0.5
 
