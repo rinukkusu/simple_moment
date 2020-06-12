@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.5+1
+
+- update french locale ([17])
+
 ## 1.0.5
 
 - add methods Add, substract, format, compareTo ([#16])
@@ -51,3 +55,4 @@
 [#6]: https://github.com/rinukkusu/simple_moment/pull/6
 [#7]: https://github.com/rinukkusu/simple_moment/pull/7
 [#16]: https://github.com/rinukkusu/simple_moment/pull/16
+[#17]: https://github.com/rinukkusu/simple_moment/pull/17
