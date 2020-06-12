@@ -1,6 +1,6 @@
 name: simple_moment
 description: A simple implementation of the Moment.js features for relative time.
-version: 1.0.5
+version: 1.0.5+1
 homepage: https://github.com/rinukkusu/simple_moment
 
 environment:
