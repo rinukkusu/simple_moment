@@ -1,6 +1,8 @@
 import 'identifier_position.dart';
 
 abstract class ILocaleData {
+  String get localeString;
+  
   String get seconds;
 
   String get aMinute;
