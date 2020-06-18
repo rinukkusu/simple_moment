@@ -13,6 +13,9 @@ class Moment {
   ILocaleData _locale;
   static int monthPerQuarter = 3;
 
+  ILocaleData get usedLocale => _locale ?? _globalLocale;
+  DateTime get date => _date;
+
   Moment.now() {
     _date = new DateTime.now();
   }
@@ -101,6 +104,21 @@ class Moment {
 
   /// Formats the date to the given format
   ///
+  /// Chosen locale needs to be initialized with
+  /// [initializeDateFormatting(moment.currentLocale)]
+  ///
+  /// @param pattern The pattern
+  /// @returns The formatted date
+  /// ```
+  /// String formattedDate = Moment.format("yyyy-mm-dd HH:mm");
+  /// ```
+  ///
+  String formatLocalized(String pattern, [String overrideLocale = null]) {
+    return DateFormat(pattern, overrideLocale ?? usedLocale.localeString).format(_date);
+  }
+
+  /// Formats the date to the given format
+  ///
   /// @param pattern The pattern
   /// @returns The formatted date
   /// ```
@@ -142,10 +160,6 @@ class Moment {
     return this;
   }
 
-  ILocaleData _getLocale() {
-    return _locale ?? _globalLocale;
-  }
-
   String toString() {
     return _date.toString();
   }
@@ -159,7 +173,7 @@ class Moment {
 
     String timeString = "";
 
-    var locale = _getLocale();
+    final locale = usedLocale;
 
     if (diff.inSeconds.abs() < 45)
       timeString = locale.seconds.replaceFirst('%i', '${diff.inSeconds.abs()}');

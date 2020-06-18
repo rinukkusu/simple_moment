@@ -5,6 +5,11 @@ import '../localedata.dart';
 import '../identifier_position.dart';
 
 class LocaleDe implements ILocaleData {
+  final String _localeString;
+  String get localeString => _localeString;
+
+  LocaleDe([this._localeString = "de"]);
+
   String get seconds => 'einigen Sekunden';
 
   String get aMinute => 'einer Minute';

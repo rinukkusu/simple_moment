@@ -5,6 +5,11 @@ import '../localedata.dart';
 import '../identifier_position.dart';
 
 class LocaleTr implements ILocaleData {
+  final String _localeString;
+  String get localeString => _localeString;
+
+  LocaleTr([this._localeString = "tr"]);
+
   String get seconds => 'bir kaç saniye';
 
   String get aMinute => 'bir dakika';
