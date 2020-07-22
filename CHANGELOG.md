@@ -2,7 +2,7 @@
 
 ## 1.0.6
 
-- add formatLocalized
+- add format localization
 
 ## 1.0.5+1
 

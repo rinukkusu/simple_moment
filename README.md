@@ -69,13 +69,13 @@ class ShortLocaleEn extends LocaleEn {
 
 ```dart
 // create new Moment instance with german locale
-var moment = Moment.now().locale(LocaleDe());
+var moment = Moment.now().locale(LocaleDe(), useInFormat: true);
 
 // initialize intl
 await initializeDateFormatting(moment.usedLocale.localeString);
 
 // format and print the current month in german
-var formattedString = moment.formatLocalized("LLLL");
+var formattedString = moment.format("LLLL");
 print(formattedString);
 ```
 
