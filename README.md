@@ -10,9 +10,9 @@ A simple usage example:
 import 'package:simple_moment/simple_moment.dart';
 
 main() {
-    var secondsToAdd = new Duration(seconds: 10);
-    var dateForComparison = new DateTime.now().add(secondsToAdd);
-    var moment = new Moment.now();
+    var secondsToAdd = Duration(seconds: 10);
+    var dateForComparison = DateTime.now().add(secondsToAdd);
+    var moment = Moment.now();
 
     // should print "in a few seconds"
     print(moment.from(dateForComparison));
@@ -63,6 +63,20 @@ class ShortLocaleEn extends LocaleEn {
   String get aDay => '%id';
   String get days => '%id';
 }
+```
+
+### Using `intl` to format dates
+
+```dart
+// create new Moment instance with german locale
+var moment = Moment.now().locale(LocaleDe(), useInFormat: true);
+
+// initialize intl
+await initializeDateFormatting(moment.usedLocale.localeString);
+
+// format and print the current month in german
+var formattedString = moment.format("LLLL");
+print(formattedString);
 ```
 
 ## Features and bugs

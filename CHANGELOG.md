@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.6
+
+- add format localization
+
 ## 1.0.5+1
 
 - update french locale ([#17])

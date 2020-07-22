@@ -12,6 +12,11 @@ class Moment {
   static ILocaleData _globalLocale = new LocaleEn();
   ILocaleData _locale;
   static int monthPerQuarter = 3;
+  static bool _useGlobalLocaleInFormat = false;
+  bool _useLocaleInFormat = false;
+
+  ILocaleData get usedLocale => _locale ?? _globalLocale;
+  DateTime get date => _date;
 
   Moment.now() {
     _date = new DateTime.now();
@@ -107,7 +112,13 @@ class Moment {
   /// String formattedDate = Moment.format("yyyy-mm-dd HH:mm");
   /// ```
   ///
-  String format(String pattern) {
+  String format(String pattern, {String localeOverride = null}) {
+    if (_useGlobalLocaleInFormat ||
+        _useLocaleInFormat ||
+        localeOverride != null)
+      return DateFormat(pattern, localeOverride ?? usedLocale.localeString)
+          .format(_date);
+
     return DateFormat(pattern).format(_date);
   }
 
@@ -133,17 +144,23 @@ class Moment {
     return _date.compareTo(date);
   }
 
-  static setLocaleGlobally(ILocaleData locale) {
+  /// Sets the global locale
+  ///
+  /// If [useInFormat] is set to true, the chosen locale needs to be
+  /// initialized with [initializeDateFormatting(locale.localeString)]
+  static setLocaleGlobally(ILocaleData locale, {useInFormat = false}) {
     _globalLocale = locale;
+    _useGlobalLocaleInFormat = useInFormat;
   }
 
-  Moment locale(ILocaleData locale) {
+  /// Sets the locale for this instance
+  ///
+  /// If [useInFormat] is set to true, the chosen locale needs to be
+  /// initialized with [initializeDateFormatting(locale.localeString)]
+  Moment locale(ILocaleData locale, {useInFormat = false}) {
     _locale = locale;
+    _useLocaleInFormat = useInFormat;
     return this;
-  }
-
-  ILocaleData _getLocale() {
-    return _locale ?? _globalLocale;
   }
 
   String toString() {
@@ -159,7 +176,7 @@ class Moment {
 
     String timeString = "";
 
-    var locale = _getLocale();
+    final locale = usedLocale;
 
     if (diff.inSeconds.abs() < 45)
       timeString = locale.seconds.replaceFirst('%i', '${diff.inSeconds.abs()}');
