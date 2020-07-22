@@ -12,6 +12,8 @@ class Moment {
   static ILocaleData _globalLocale = new LocaleEn();
   ILocaleData _locale;
   static int monthPerQuarter = 3;
+  static bool _useGlobalLocaleInFormat = false;
+  bool _useLocaleInFormat = false;
 
   ILocaleData get usedLocale => _locale ?? _globalLocale;
   DateTime get date => _date;
@@ -104,28 +106,19 @@ class Moment {
 
   /// Formats the date to the given format
   ///
-  /// Chosen locale needs to be initialized with
-  /// [initializeDateFormatting(moment.currentLocale)]
-  ///
   /// @param pattern The pattern
   /// @returns The formatted date
   /// ```
   /// String formattedDate = Moment.format("yyyy-mm-dd HH:mm");
   /// ```
   ///
-  String formatLocalized(String pattern, [String overrideLocale = null]) {
-    return DateFormat(pattern, overrideLocale ?? usedLocale.localeString).format(_date);
-  }
+  String format(String pattern, {String localeOverride = null}) {
+    if (_useGlobalLocaleInFormat ||
+        _useLocaleInFormat ||
+        localeOverride != null)
+      return DateFormat(pattern, localeOverride ?? usedLocale.localeString)
+          .format(_date);
 
-  /// Formats the date to the given format
-  ///
-  /// @param pattern The pattern
-  /// @returns The formatted date
-  /// ```
-  /// String formattedDate = Moment.format("yyyy-mm-dd HH:mm");
-  /// ```
-  ///
-  String format(String pattern) {
     return DateFormat(pattern).format(_date);
   }
 
@@ -151,12 +144,22 @@ class Moment {
     return _date.compareTo(date);
   }
 
-  static setLocaleGlobally(ILocaleData locale) {
+  /// Sets the global locale
+  ///
+  /// If [useInFormat] is set to true, the chosen locale needs to be
+  /// initialized with [initializeDateFormatting(locale.localeString)]
+  static setLocaleGlobally(ILocaleData locale, {useInFormat = false}) {
     _globalLocale = locale;
+    _useGlobalLocaleInFormat = useInFormat;
   }
 
-  Moment locale(ILocaleData locale) {
+  /// Sets the locale for this instance
+  ///
+  /// If [useInFormat] is set to true, the chosen locale needs to be
+  /// initialized with [initializeDateFormatting(locale.localeString)]
+  Moment locale(ILocaleData locale, {useInFormat = false}) {
     _locale = locale;
+    _useLocaleInFormat = useInFormat;
     return this;
   }
 
