@@ -4,11 +4,11 @@
 import '../localedata.dart';
 import '../identifier_position.dart';
 
-class LocaleEn implements ILocaleData {
+class LocaleVi implements ILocaleData {
   final String _localeString;
   String get localeString => _localeString;
 
-  LocaleEn([this._localeString = "vi"]);
+  LocaleVi([this._localeString = "vi"]);
 
   String get seconds => 'vài giây';
 
