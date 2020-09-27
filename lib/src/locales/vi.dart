@@ -30,6 +30,6 @@ class LocaleVi implements ILocaleData {
   String get futureIdentifier => 'tới';
   String get pastIdentifier => 'trước';
 
-  IdentifierPosition get futurePosition => IdentifierPosition.prepend;
+  IdentifierPosition get futurePosition => IdentifierPosition.append;
   IdentifierPosition get pastPosition => IdentifierPosition.append;
 }
