@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.7
+
+- add vietnamese locale
+- add arabic locale
+
 ## 1.0.6
 
 - add format localization
