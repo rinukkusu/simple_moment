@@ -10,7 +10,7 @@ import 'identifier_position.dart';
 class Moment {
   late DateTime _date;
   static ILocaleData _globalLocale = new LocaleEn();
-  late ILocaleData _locale;
+  ILocaleData? _locale = null;
   static int monthPerQuarter = 3;
   static bool _useGlobalLocaleInFormat = false;
   bool _useLocaleInFormat = false;
