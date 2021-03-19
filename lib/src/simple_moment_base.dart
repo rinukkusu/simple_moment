@@ -8,9 +8,9 @@ import 'locales/en.dart';
 import 'identifier_position.dart';
 
 class Moment {
-  DateTime _date;
+  late DateTime _date;
   static ILocaleData _globalLocale = new LocaleEn();
-  ILocaleData _locale;
+  late ILocaleData _locale;
   static int monthPerQuarter = 3;
   static bool _useGlobalLocaleInFormat = false;
   bool _useLocaleInFormat = false;
@@ -112,7 +112,7 @@ class Moment {
   /// String formattedDate = Moment.format("yyyy-mm-dd HH:mm");
   /// ```
   ///
-  String format(String pattern, {String localeOverride = null}) {
+  String format(String pattern, {String? localeOverride}) {
     if (_useGlobalLocaleInFormat ||
         _useLocaleInFormat ||
         localeOverride != null)
