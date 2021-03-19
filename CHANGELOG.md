@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.0
+
+- add khmer locale
+- add null safety ([#25])
+
 ## 1.0.7
 
 - add vietnamese locale
@@ -65,3 +70,4 @@
 [#7]: https://github.com/rinukkusu/simple_moment/pull/7
 [#16]: https://github.com/rinukkusu/simple_moment/pull/16
 [#17]: https://github.com/rinukkusu/simple_moment/pull/17
+[#25]: https://github.com/rinukkusu/simple_moment/issues/25
