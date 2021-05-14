@@ -19,4 +19,5 @@ export 'src/locales/tr.dart';
 export 'src/locales/nl.dart';
 export 'src/locales/vi.dart';
 export 'src/locales/km.dart';
+export 'src/locales/ko.dart';
 export 'src/simple_moment_base.dart';
