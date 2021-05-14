@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.1
+
+- add korean locale ([#29])
+
 ## 1.1.0
 
 - add khmer locale
@@ -71,3 +75,4 @@
 [#16]: https://github.com/rinukkusu/simple_moment/pull/16
 [#17]: https://github.com/rinukkusu/simple_moment/pull/17
 [#25]: https://github.com/rinukkusu/simple_moment/issues/25
+[#29]: https://github.com/rinukkusu/simple_moment/pull/29
