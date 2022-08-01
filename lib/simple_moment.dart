@@ -20,4 +20,5 @@ export 'src/locales/nl.dart';
 export 'src/locales/vi.dart';
 export 'src/locales/km.dart';
 export 'src/locales/ko.dart';
+export 'src/locales/zh_CN.dart';
 export 'src/simple_moment_base.dart';
