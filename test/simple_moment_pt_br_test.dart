@@ -2,7 +2,6 @@
 // is governed by a BSD-style license that can be found in the LICENSE file.
 
 import 'package:simple_moment/simple_moment.dart';
-import 'package:simple_moment/src/locales/pt_br.dart';
 import 'package:test/test.dart';
 
 void main() {

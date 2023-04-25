@@ -33,7 +33,7 @@ class Moment {
   ///
   /// @param millisecondsSinceEpoch
   Moment.fromMillisecondsSinceEpoch(int millisecondsSinceEpoch,
-      {bool isUtc: false}) {
+      {bool isUtc = false}) {
     _date = new DateTime.fromMillisecondsSinceEpoch(millisecondsSinceEpoch,
         isUtc: isUtc);
   }
@@ -52,16 +52,16 @@ class Moment {
   /// Adds time to the current date
   ///
   Moment add({
-    int years: 0,
-    int quarters: 0,
-    int months: 0,
-    int weeks: 0,
-    int days: 0,
-    int hours: 0,
-    int minutes: 0,
-    int seconds: 0,
-    int milliseconds: 0,
-    int microseconds: 0,
+    int years = 0,
+    int quarters = 0,
+    int months = 0,
+    int weeks = 0,
+    int days = 0,
+    int hours = 0,
+    int minutes = 0,
+    int seconds = 0,
+    int milliseconds = 0,
+    int microseconds = 0,
   }) {
     var dateTime = DateTime(
       _date.year + years,
@@ -80,16 +80,16 @@ class Moment {
   /// Substracts time to the current date
   ///
   Moment subtract({
-    int years: 0,
-    int quarters: 0,
-    int months: 0,
-    int weeks: 0,
-    int days: 0,
-    int hours: 0,
-    int minutes: 0,
-    int seconds: 0,
-    int milliseconds: 0,
-    int microseconds: 0,
+    int years = 0,
+    int quarters = 0,
+    int months = 0,
+    int weeks = 0,
+    int days = 0,
+    int hours = 0,
+    int minutes = 0,
+    int seconds = 0,
+    int milliseconds = 0,
+    int microseconds = 0,
   }) {
     var dateTime = DateTime(
       _date.year - years,
