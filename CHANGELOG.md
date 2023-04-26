@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0
+
+- bump package and dart versions
+
 ## 1.1.1
 
 - add korean locale ([#29])
